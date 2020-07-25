@@ -9,37 +9,44 @@
 import UIKit
 
 class ToDoTableViewController: UITableViewController {
-    
-    var todos = [ToDo]()
+
+   var todos = [ToDo]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        if let savedToDos = ToDo.loadToDos(){
+            todos = savedToDos
+            
+        } else {
+            ToDo.loadSampleToDo()
+        
+        }
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         
-        return todos.count
+        return 1
+        
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        
+        return todos.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ToDoCellIdentifier") else { fatalError("Could not dequeue a cell")
+       
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ToDoCellIdentifier")
+         else { fatalError("Could not dequeue a cell")
         }
-        let todo = todos[ indexPath.row]
-        cell.textLabel?.text = todo.title       
+        
+        let todo = todos[indexPath.row]
+        cell.textLabel?.text = todo.title
+        
         return cell
     }
     
@@ -88,5 +95,8 @@ class ToDoTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+   
 
 }
+
