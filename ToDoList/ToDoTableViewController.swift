@@ -19,8 +19,8 @@ class ToDoTableViewController: UITableViewController {
             todos = savedToDos
             
         } else {
-            ToDo.loadSampleToDo()
-        
+           todos = ToDo.loadSampleToDo()
+            
         }
         //change state of edit navigation button to done navigation button
         navigationItem.leftBarButtonItem = editButtonItem
@@ -96,7 +96,11 @@ class ToDoTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
-    
+
+    @IBAction func unwindToToDoList(_ unwindSegue: UIStoryboardSegue) {
+        let sourceViewController = unwindSegue.source
+     
+    }
    
 
 }
