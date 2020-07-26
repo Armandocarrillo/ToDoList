@@ -45,7 +45,7 @@
         <!--New ToDo-->
         <scene sceneID="B9b-b3-p21">
             <objects>
-                <tableViewController id="Xb2-Hp-qNU" sceneMemberID="viewController">
+                <tableViewController id="Xb2-Hp-qNU" customClass="ToDoViewController" customModule="ToDoList" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="aJa-by-p7M">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -66,14 +66,21 @@
                                                         <constraint firstAttribute="height" constant="36" id="Qm5-1V-TcZ"/>
                                                         <constraint firstAttribute="width" constant="36" id="k9W-cM-9kf"/>
                                                     </constraints>
-                                                    <state key="normal" image="Checked"/>
+                                                    <state key="normal" image="Unchecked"/>
                                                     <state key="disabled" image="Unchecked"/>
                                                     <state key="selected" image="Checked"/>
+                                                    <connections>
+                                                        <action selector="isCompleteButtonTapped:" destination="Xb2-Hp-qNU" eventType="touchUpInside" id="zYC-AV-PRi"/>
+                                                    </connections>
                                                 </button>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Remind me to..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Nct-32-NsT">
                                                     <rect key="frame" x="64" y="4" width="350" height="34"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="returnPressed:" destination="Xb2-Hp-qNU" eventType="primaryActionTriggered" id="wY0-NV-41F"/>
+                                                        <action selector="textEditingChanged:" destination="Xb2-Hp-qNU" eventType="editingDidEnd" id="pdN-Yy-kIJ"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -97,13 +104,13 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Due Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YNZ-Fi-zxl">
-                                                    <rect key="frame" x="20" y="11" width="72" height="21.5"/>
+                                                    <rect key="frame" x="20" y="11" width="71.5" height="21.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="25/07/2020" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hCc-vA-eEm">
-                                                    <rect key="frame" x="317" y="10" width="90" height="21.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="25/07/2020, 6:24 PM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hCc-vA-eEm">
+                                                    <rect key="frame" x="244" y="10" width="163" height="21.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -111,8 +118,8 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="hCc-vA-eEm" secondAttribute="trailing" constant="7" id="EMR-HY-gjz"/>
-                                                <constraint firstItem="hCc-vA-eEm" firstAttribute="leading" secondItem="YNZ-Fi-zxl" secondAttribute="trailing" constant="225" id="NUs-fN-LQx"/>
                                                 <constraint firstItem="hCc-vA-eEm" firstAttribute="top" secondItem="7ZA-ev-vIS" secondAttribute="top" constant="10" id="TW0-58-2nS"/>
+                                                <constraint firstItem="hCc-vA-eEm" firstAttribute="leading" secondItem="YNZ-Fi-zxl" secondAttribute="trailing" constant="152.5" id="iFM-Wz-YaE"/>
                                                 <constraint firstItem="YNZ-Fi-zxl" firstAttribute="leading" secondItem="7ZA-ev-vIS" secondAttribute="leadingMargin" id="jWP-cR-kif"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="YNZ-Fi-zxl" secondAttribute="bottom" constant="0.5" id="kzQ-l8-uho"/>
                                                 <constraint firstItem="YNZ-Fi-zxl" firstAttribute="top" secondItem="7ZA-ev-vIS" secondAttribute="topMargin" id="oRo-jE-ul6"/>
@@ -129,6 +136,9 @@
                                             <subviews>
                                                 <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="5PT-S0-FX8">
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="216"/>
+                                                    <connections>
+                                                        <action selector="datePickerChanged:" destination="Xb2-Hp-qNU" eventType="primaryActionTriggered" id="sPi-gB-dVa"/>
+                                                    </connections>
                                                 </datePicker>
                                             </subviews>
                                             <constraints>
@@ -149,7 +159,6 @@
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="6rK-FK-nqO">
                                                     <rect key="frame" x="20" y="11" width="374" height="189"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                     <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -183,6 +192,14 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="dueDateLabel" destination="hCc-vA-eEm" id="GjR-h6-vyx"/>
+                        <outlet property="dueDatePicker" destination="5PT-S0-FX8" id="sqV-Pu-K7V"/>
+                        <outlet property="isCompleteButton" destination="aei-nY-DG0" id="KPm-Ch-O9r"/>
+                        <outlet property="notesTextView" destination="6rK-FK-nqO" id="wyH-zc-y2b"/>
+                        <outlet property="saveButton" destination="TQi-1z-9pF" id="mlQ-JK-AGv"/>
+                        <outlet property="titleTextField" destination="Nct-32-NsT" id="q4s-bE-pmE"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Snv-Sv-FdR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="M3H-Xr-bUi" userLabel="Exit" sceneMemberID="exit"/>
