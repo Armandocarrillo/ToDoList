@@ -103,11 +103,24 @@ class ToDoTableViewController: UITableViewController {
         let sourceViewController = segue.source as! ToDoViewController//check to see if a model object exists in the segue source
         
         if let todo = sourceViewController.todo { //if exists, add it to the array
-            let newIndexPath = IndexPath(row: todos.count, section: 0)
+            if let selectedIndexPath = tableView.indexPathForSelectedRow { //if unwrap the tableView has a value, use it to update
+                todos[ selectedIndexPath.row] = todo
+                tableView.reloadRows(at: [selectedIndexPath], with: .none)
+            } else { //append the model and add new cell
+              let newIndexPath = IndexPath(row: todos.count, section: 0)
+                todos.append(todo)
+                tableView.insertRows(at: [ newIndexPath], with: .automatic)
+            }
             
-            todos.append(todo)
-            tableView.insertRows(at: [ newIndexPath], with: .automatic)
-            
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showDetails"{
+            let todoViewController = segue.destination as! ToDoViewController
+            let indexPath = tableView.indexPathForSelectedRow!
+            let selectedTodo = todos[ indexPath.row]
+            todoViewController.todo = selectedTodo
         }
     }
    
