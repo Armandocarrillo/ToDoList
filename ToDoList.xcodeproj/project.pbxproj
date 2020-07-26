@@ -15,6 +15,7 @@
 		104DBBA324CCA23700148855 /* ToDo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104DBBA224CCA23700148855 /* ToDo.swift */; };
 		104DBBA524CCA44C00148855 /* ToDoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104DBBA424CCA44C00148855 /* ToDoTableViewController.swift */; };
 		104DBBA724CCE8A000148855 /* ToDoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104DBBA624CCE8A000148855 /* ToDoViewController.swift */; };
+		1083383D24CD62360052555E /* ToDoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1083383C24CD62360052555E /* ToDoTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		104DBBA224CCA23700148855 /* ToDo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDo.swift; sourceTree = "<group>"; };
 		104DBBA424CCA44C00148855 /* ToDoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoTableViewController.swift; sourceTree = "<group>"; };
 		104DBBA624CCE8A000148855 /* ToDoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoViewController.swift; sourceTree = "<group>"; };
+		1083383C24CD62360052555E /* ToDoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				104DBBA224CCA23700148855 /* ToDo.swift */,
 				104DBBA424CCA44C00148855 /* ToDoTableViewController.swift */,
 				104DBBA624CCE8A000148855 /* ToDoViewController.swift */,
+				1083383C24CD62360052555E /* ToDoTableViewCell.swift */,
 			);
 			path = ToDoList;
 			sourceTree = "<group>";
@@ -147,6 +150,7 @@
 				104DBBA724CCE8A000148855 /* ToDoViewController.swift in Sources */,
 				104DBBA324CCA23700148855 /* ToDo.swift in Sources */,
 				104DBBA524CCA44C00148855 /* ToDoTableViewController.swift in Sources */,
+				1083383D24CD62360052555E /* ToDoTableViewCell.swift in Sources */,
 				104DBB8F24CC9B3A00148855 /* AppDelegate.swift in Sources */,
 				104DBB9124CC9B3A00148855 /* SceneDelegate.swift in Sources */,
 			);

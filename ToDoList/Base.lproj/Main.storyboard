@@ -15,14 +15,46 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ToDoCellIdentifier" id="ooa-B5-6rY">
-                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ToDoCellIdentifier" id="ooa-B5-6rY" customClass="ToDoTableViewCell" customModule="ToDoList" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="44.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ooa-B5-6rY" id="cOx-62-QJQ">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="44.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u8E-kV-vcI">
+                                            <rect key="frame" x="8" y="0.0" width="44" height="44.5"/>
+                                            <state key="normal" image="Unchecked"/>
+                                            <state key="disabled" image="Unchecked"/>
+                                            <state key="selected" image="Checked"/>
+                                            <connections>
+                                                <action selector="completeButtonTapped:" destination="ooa-B5-6rY" eventType="touchUpInside" id="ALj-VN-qUL"/>
+                                                <action selector="isCompleteButtonTapped:" destination="Xb2-Hp-qNU" eventType="touchUpInside" id="BfW-Sy-lCI"/>
+                                            </connections>
+                                        </button>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pmI-bq-eKH">
+                                            <rect key="frame" x="60" y="0.0" width="340" height="44.5"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="340" id="hGu-ib-8Ga"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="pmI-bq-eKH" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="u8E-kV-vcI" secondAttribute="trailing" constant="8" symbolic="YES" id="42P-L5-TSq"/>
+                                        <constraint firstItem="pmI-bq-eKH" firstAttribute="centerY" secondItem="u8E-kV-vcI" secondAttribute="centerY" id="ABG-7A-w1q"/>
+                                        <constraint firstAttribute="bottom" secondItem="u8E-kV-vcI" secondAttribute="bottom" id="AeX-mk-Wbl"/>
+                                        <constraint firstItem="pmI-bq-eKH" firstAttribute="top" secondItem="u8E-kV-vcI" secondAttribute="top" id="LIP-0I-dfw"/>
+                                        <constraint firstAttribute="trailing" secondItem="pmI-bq-eKH" secondAttribute="trailing" constant="14" id="MWf-qk-jul"/>
+                                        <constraint firstItem="u8E-kV-vcI" firstAttribute="top" secondItem="cOx-62-QJQ" secondAttribute="top" id="WLe-uH-pPn"/>
+                                        <constraint firstItem="u8E-kV-vcI" firstAttribute="leading" secondItem="cOx-62-QJQ" secondAttribute="leading" constant="8" id="tDA-OD-FEd"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="isCompleteButton" destination="u8E-kV-vcI" id="ycQ-Qd-pQy"/>
+                                    <outlet property="titleLabel" destination="pmI-bq-eKH" id="zZy-1a-QsQ"/>
                                     <segue destination="Xb2-Hp-qNU" kind="show" identifier="showDetails" id="YFu-im-OdK"/>
                                 </connections>
                             </tableViewCell>
