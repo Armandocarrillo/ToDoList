@@ -183,12 +183,12 @@
                     <navigationItem key="navigationItem" title="New ToDo" largeTitleDisplayMode="never" id="hmt-bz-aX5">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="tNQ-ug-fPa">
                             <connections>
-                                <segue destination="M3H-Xr-bUi" kind="unwind" unwindAction="unwindToToDoList:" id="iLk-2b-4MG"/>
+                                <segue destination="M3H-Xr-bUi" kind="unwind" unwindAction="unwindToToDoListWithSegue:" id="o7D-Eo-beU"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="TQi-1z-9pF">
                             <connections>
-                                <segue destination="M3H-Xr-bUi" kind="unwind" identifier="saveUnwind" unwindAction="unwindToToDoList:" id="77K-BH-k4a"/>
+                                <segue destination="M3H-Xr-bUi" kind="unwind" identifier="saveUnwind" unwindAction="unwindToToDoListWithSegue:" id="4Ts-TK-v2N"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

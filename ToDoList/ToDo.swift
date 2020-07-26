@@ -9,7 +9,7 @@
 import Foundation
 
 struct ToDo{
-    var title: String
+    var title: String?
     var isComplete: Bool
     var duDate : Date
     var notes: String?

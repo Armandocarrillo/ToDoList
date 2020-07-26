@@ -17,6 +17,7 @@ class ToDoViewController: UITableViewController {
     @IBOutlet weak var notesTextView: UITextView!
     @IBOutlet weak var saveButton: UIBarButtonItem!
     
+     var todo : ToDo?
     
     //save button depending on text exists in the text field
     func updateSaveButtonState(){
@@ -108,6 +109,19 @@ class ToDoViewController: UITableViewController {
     }
     @IBAction func datePickerChanged(_ sender: UIDatePicker) {
         updateDueDateLabel(date: dueDatePicker.date)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+       
+        guard  segue.identifier == "saveUnwind" else { return }
+        
+        let title = titleTextField.text!
+        let isComplete = isCompleteButton.isSelected
+        let dueDate = dueDatePicker.date
+        let notes = notesTextView.text
+        
+        todo = ToDo(title: title, isComplete: isComplete, duDate: dueDate, notes: notes)
     }
     
 

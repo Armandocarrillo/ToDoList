@@ -97,8 +97,18 @@ class ToDoTableViewController: UITableViewController {
     }
     */
 
-    @IBAction func unwindToToDoList(_ unwindSegue: UIStoryboardSegue) {
-      
+    @IBAction func unwindToToDoList(segue: UIStoryboardSegue) {
+        guard segue.identifier == "saveUnwind" else { return } //verify that identifier is being called
+        
+        let sourceViewController = segue.source as! ToDoViewController//check to see if a model object exists in the segue source
+        
+        if let todo = sourceViewController.todo { //if exists, add it to the array
+            let newIndexPath = IndexPath(row: todos.count, section: 0)
+            
+            todos.append(todo)
+            tableView.insertRows(at: [ newIndexPath], with: .automatic)
+            
+        }
     }
    
 
